@@ -13,7 +13,7 @@ export function NavBar() {
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
             />
-            <nav  className={`${displayStyle} h-full w-full fixed top-0 left-0 justify-center items-center bg-seaBlue-800`}>
+            <nav  className={`${displayStyle} h-full w-full fixed top-0 left-0 justify-center items-center bg-seaBlue-800 z-10`}>
                 <ul className="flex flex-col items-center gap-3">
                     <LiList value="qualquer coisa"/>
                     <LiList value="qualquer coisa"/>
