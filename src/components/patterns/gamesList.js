@@ -1,9 +1,11 @@
 import react, {useState} from "react";
 import { products } from "../../../products";
 import { GameCard } from "../gameCard";
+import { GameType } from "../gameType";
 
 export function GameList() {
     const [seachGame, setSeachGame] = react.useState('')
+    const [seachType, setSeachType] = react.useState('')
 
 
     return (
@@ -20,11 +22,22 @@ export function GameList() {
                         }}
                     />
                 </form>
+                <GameType
+                    seachType={seachType}
+                    setSeachType={setSeachType}
+                />
+                
                 <div className="grid place-items-center gap-5">
                     {products.filter((val) => {
                         if (seachGame === '') {
                             return val
                         } else if (val.name.toLowerCase().includes(seachGame.toLowerCase())) {
+                            return val
+                        }
+                    }).filter((val) => {
+                        if (seachType === '') {
+                            return val
+                        } else if (val.type.toLowerCase().includes(seachType.toLowerCase())) {
                             return val
                         }
                     }).map((data, key) => {
