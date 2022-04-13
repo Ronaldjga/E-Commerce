@@ -3,8 +3,12 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { products } from "../../products";
 import Image from "next/image";
+import { AddToCar } from "../../src/components/addToCar";
+import { useEffect } from "react";
+import MyCart from "../myCart";
 
-export default function GamePage({gameProduct}) {
+export default function GamePage({ gameProduct }) {
+
     const { isFallback } = useRouter();
     if (isFallback) {
         return <p>Carregando...</p>
@@ -13,7 +17,7 @@ export default function GamePage({gameProduct}) {
 
     return (
         <div className="p-5">
-            <div className="shadow-lg p-5">
+            <div className="flex flex-col justify-center items-center gap-3 shadow-lg p-5">
                 <div className="w-full">
                     <Image
                         layout="responsive"
@@ -27,7 +31,9 @@ export default function GamePage({gameProduct}) {
                     <p className="p-3 bg-yellow-500 rounded-full">{gameProduct.score}</p>
                     <p className="font-bold text-2xl">R$ {gameProduct.price}</p>
                 </div>
-                
+                <AddToCar
+                    thisGame={gameProduct}
+                />
             </div>
         </div>
     )
