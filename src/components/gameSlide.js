@@ -2,6 +2,7 @@ import react, { useState } from "react";
 import { useEffect } from "react";
 import Image from "next/image";
 import { products } from '../../products'
+import Link from "next/link";
 
 
 export function GameSlide() {
@@ -29,17 +30,21 @@ export function GameSlide() {
 
     return (
         <div className="max-w-screen-xl p-5 mx-auto flex flex-col justify-center items-center">
-            <div className="">
-                <Image
-                    src={products[game].image}
-                    alt={products[game].name}
-                />
-                <div className="flex flex-col justify-center items-center gap-3">
-                    <h2 className="text-xl">{products[game].name}</h2>
-                    <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
-                    <p className="font-bold text-2xl">R$ {products[game].price}</p>
-                </div>
-            </div>
+            <Link href={`/games/${products[game].name}`}>
+                <a>
+                    <div className="">
+                        <Image
+                            src={products[game].image}
+                            alt={products[game].name}
+                        />
+                        <div className="flex flex-col justify-center items-center gap-3">
+                            <h2 className="text-xl text-center">{products[game].name}</h2>
+                            <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
+                            <p className="font-bold text-2xl">R$ {products[game].price}</p>
+                        </div>
+                    </div>
+                </a>
+            </Link>
             <div className="flex gap-2">
                 <InputSlide
                     game={game}
