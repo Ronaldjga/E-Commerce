@@ -15,7 +15,9 @@ export function GameSlide() {
 
     const autoSlide = () => {
         if (game === 8) {
-            setGame(0)
+            timeAutoSlide.push(setTimeout(() => {
+                setGame(0)
+            },5000))
         } else {
             timeAutoSlide.push(setTimeout(() => {
                 setGame(game + 1)
@@ -32,9 +34,9 @@ export function GameSlide() {
                     src={products[game].image}
                     alt={products[game].name}
                 />
-                <div>
-                    <h2 className="text-xl text-center">{products[game].name}</h2>
-                    <p>{products[game].score}</p>
+                <div className="flex flex-col justify-center items-center gap-3">
+                    <h2 className="text-xl">{products[game].name}</h2>
+                    <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
                     <p className="font-bold text-2xl">R$ {products[game].price}</p>
                 </div>
             </div>
