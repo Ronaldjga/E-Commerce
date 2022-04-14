@@ -1,6 +1,6 @@
 import react from "react";
 import Image from "next/image";
-import { AddToCar } from "./addToCar";
+import { AddToCar, ButtonAmount, DeleteGame } from "./addToCar";
 
 
 export function GameCard(props) {
@@ -29,10 +29,12 @@ export function GameCard(props) {
 }
 
 export function GameCardInCart({ game, quantidade }) {
-    const [newAmount, setNewAmount] = react.useState(quantidade)
+    const [amount, setAmount] = react.useState(quantidade)
+
+    const subTotalCalc = (quantidade * game.price).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
     return (
-        <div className="flex flex-col p-5 shadow-lg">
+        <div className="flex flex-col gap-2 p-5 shadow-lg relative">
             <div className="w-full flex">
                 <div className="w-1/3">
                     <Image
@@ -54,29 +56,18 @@ export function GameCardInCart({ game, quantidade }) {
                     </p>
                 </div>
             </div>
-            <div className="flex justify-between">
-                    <button onClick={(e) => {
-                        e.preventDefault()
-                        setNewAmount(parseFloat(newAmount) - 1)
-                    }}>-</button>
-                    <input
-                        className="w-1/3 text-center"
-                        type={'number'}
-                        value={newAmount}
-                        onChange={(e) => {
-                            setNewAmount(e.target.value)
-                        }}
-                    />
-                    <button onClick={(e) => {
-                        e.preventDefault()
-                        setNewAmount(parseFloat(newAmount) + 1)
-                    }}>+</button>
-                </div>
+            <ButtonAmount
+                amount={amount}
+                setAmount={setAmount}
+            />
             <p className="text-center">
-               R$ {parseFloat(quantidade * game.price).toFixed(2)}
+               Subtotal: <span className="font-bold">{subTotalCalc}</span>
             </p>
             <AddToCar
-                thisAmount={newAmount}
+                thisAmount={amount}
+                thisGame={game}
+            />
+            <DeleteGame
                 thisGame={game}
             />
         </div>

@@ -3,12 +3,12 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import { useRouter } from "next/router";
 import { products } from "../../products";
 import Image from "next/image";
-import { AddToCar } from "../../src/components/addToCar";
+import { AddToCar, ButtonAmount } from "../../src/components/addToCar";
 import { useEffect } from "react";
 import MyCart from "../myCart";
 
 export default function GamePage({ gameProduct }) {
-    const [amount, setAMount] = react.useState(1)
+    const [amount, setAmount] = react.useState("1")
     const [quantidadeAtual, setQuantidadeAtual] = react.useState()
     const [db, setDb] = react.useState()
     const [subTotal, setSubTotal] = react.useState()
@@ -28,7 +28,8 @@ export default function GamePage({ gameProduct }) {
             allProducts.find(e => {
                 if (e.game.name === gameProduct.name) {
                     setQuantidadeAtual(e.quantidade)
-                    setSubTotal(parseFloat(e.quantidade * gameProduct.price).toFixed(2))
+                    const total = e.quantidade * gameProduct.price
+                    setSubTotal(total.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}))
                 }
                 else { null }
             })
@@ -51,30 +52,16 @@ export default function GamePage({ gameProduct }) {
                     <p className="p-3 bg-yellow-500 rounded-full">{gameProduct.score}</p>
                     <p className="font-bold text-2xl">R$ {gameProduct.price}</p>
                 </div>
-                <div className="flex justify-between">
-                    <button onClick={(e) => {
-                        e.preventDefault()
-                        setAMount(parseFloat(amount) - 1)
-                    }}>-</button>
-                    <input
-                        className="w-1/3 text-center"
-                        type={'number'}
-                        value={amount}
-                        onChange={(e) => {
-                            setAMount(e.target.value)
-                        }}
-                    />
-                    <button onClick={(e) => {
-                        e.preventDefault()
-                        setAMount(parseFloat(amount) + 1)
-                    }}>+</button>
-                </div>
+                <ButtonAmount
+                    amount={amount}
+                    setAmount={setAmount}
+                />
                 <AddToCar
                     thisGame={gameProduct}
                     thisAmount={amount}
                 />
                 <p>
-                    subTotal no Carrinho: {subTotal}
+                    subTotal: <span className="font-bold">{subTotal}</span>
                 </p>
             </div>
         </div>

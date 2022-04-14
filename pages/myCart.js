@@ -10,9 +10,15 @@ export default function MyCart() {
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
             setIsCart('Não tem game')
+            localStorage.setItem('myShoppingCart', JSON.stringify([]))
+            setMyCart(JSON.parse(localStorage.getItem('myShoppingCart')))
         } else {
             setMyCart(JSON.parse(localStorage.getItem('myShoppingCart')))
+            if (myCart.length === 0) {
+                setMyCart(JSON.parse(localStorage.getItem('myShoppingCart')))
+            }
         }
+        
     }, [myCart])
 
     return (
