@@ -7,6 +7,7 @@ import Link from "next/link";
 
 export function GameSlide() {
     const [game, setGame] = react.useState(0)
+    const price = products[game].price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
     var timeAutoSlide = []
 
@@ -29,18 +30,21 @@ export function GameSlide() {
 
 
     return (
-        <div className="max-w-screen-xl p-5 mx-auto flex flex-col justify-center items-center">
+        <div className="max-w-screen-xl p-5 mx-auto flex flex-col gap-5 justify-center items-center bg-seaBlue-900 rounded-[8px] text-white">
             <Link href={`/games/${products[game].name}`}>
-                <a>
-                    <div className="">
-                        <Image
-                            src={products[game].image}
-                            alt={products[game].name}
-                        />
-                        <div className="flex flex-col justify-center items-center gap-3">
-                            <h2 className="text-xl text-center">{products[game].name}</h2>
+                <a className="w-full">
+                    <div className="w-full md:grid md:grid-cols-2 md:place-items-center">
+                        <div className="max-w-[300px] md:max-w-full w-3/4 md:w-full mx-auto">
+                            <Image
+                                layout="responsive"
+                                src={products[game].image}
+                                alt={products[game].name}
+                            />
+                        </div>
+                        <div className="flex flex-col justify-center items-center gap-3 lg:gap-5">
+                            <h2 className="text-xl text-center md:text-3xl lg:text-4xl md:font-bold">{products[game].name}</h2>
                             <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
-                            <p className="font-bold text-2xl">R$ {products[game].price}</p>
+                            <p className="font-bold text-2xl md:text-4xl lg:text-5xl">{price}</p>
                         </div>
                     </div>
                 </a>
@@ -106,11 +110,11 @@ export function GameSlide() {
 }
 
 function InputSlide(props) {
-    const checked = props.game === props.gameIndex ? 'bg-seaBlue-300' : 'bg-seaBlue-default'
+    const checked = props.game === props.gameIndex ? 'bg-primaryGreen-default' : 'bg-seaBlue-default'
     return (
         <>
             <label
-                className={`${checked} block w-[25px] h-[10px]`}
+                className={`${checked} block w-[30px] h-[10px]`}
                 htmlFor={props.gameIndex}>
                 
                 </label>

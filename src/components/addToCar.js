@@ -7,7 +7,7 @@ import trashIcon from './img/trashIcon.svg'
 export function AddToCar({ thisGame, thisAmount}) {
     const [newProduct, setNewProduct] = react.useState([])
     const [buttonValue, setButtonValue] = react.useState('Adicionar ao carrinho')
-    const [buttonStyle, setButtonStyle] = react.useState('')
+    const [buttonStyle, setButtonStyle] = react.useState('bg-seaBlue-400')
 
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
@@ -54,6 +54,9 @@ export function AddToCar({ thisGame, thisAmount}) {
 
     return (
         <button
+            className={`${buttonStyle} w-full flex justify-center items-center py-2  px-5 rounded-[4px]
+            lg:w-2/4
+            `}
             onClick={(e) => {
                 e.preventDefault()
                 
@@ -89,7 +92,6 @@ export function AddToCar({ thisGame, thisAmount}) {
                 }
                 
             }}
-            className={`${buttonStyle} flex justify-center items-center py-2 bg-seaBlue-300 px-5 rounded-[4px]`}
         >
             {buttonValue}
         </button>
@@ -152,14 +154,16 @@ export function ButtonAmount({setAmount, amount}) {
     
 
     return (
-        <div className="flex justify-between">
+        <div className="w-full flex justify-between
+            md:w-2/4 md: h-fit
+        ">
             <ModifyQuantity
                 amount={amount}
                 setAmount={setAmount}
                 value='-'
             />
             <input
-                className="w-1/3 text-center"
+                className="w-1/3 text-center text-black rounded-[4px]"
                 type={'text'}
                 required
                 minLength={1}

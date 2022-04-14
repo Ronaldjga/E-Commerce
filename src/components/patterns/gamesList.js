@@ -2,6 +2,7 @@ import react, {useState} from "react";
 import { products } from "../../../products";
 import { GameCard } from "../gameCard";
 import { GameType } from "../gameType";
+import Link from "next/link";
 
 export function GameList() {
     const [seachGame, setSeachGame] = react.useState('')
@@ -10,10 +11,10 @@ export function GameList() {
 
     return (
         <main>
-            <div className="max-w-screen-xl mx-auto p-5">
-                <form>
+            <div className="max-w-screen-xl mx-auto p-5 flex flex-col justify-center items-center gap-5">
+                <div className="w-full p-2 bg-seaBlue-800 rounded-[8px]">
                     <input
-                        className="w-full h-[30px] p-2"
+                        className="w-full p-2 rounded-[8px]"
                         type={'text'}
                         placeholder="Pesquise um Game"
                         value={seachGame}
@@ -21,13 +22,16 @@ export function GameList() {
                             setSeachGame(e.target.value)
                         }}
                     />
-                </form>
-                <GameType
-                    seachType={seachType}
-                    setSeachType={setSeachType}
-                />
+                    <GameType
+                        seachType={seachType}
+                        setSeachType={setSeachType}
+                    />
+                </div>
                 
-                <div className="grid place-items-center gap-5">
+                <div className="w-full grid place-items-center gap-5
+                sm:grid-cols-2
+                lg:grid-cols-3
+                ">
                     {products.filter((val) => {
                         if (seachGame === '') {
                             return val
@@ -42,10 +46,14 @@ export function GameList() {
                         }
                     }).map((data, key) => {
                         return (
-                            <GameCard
-                                key={key}
-                                game={data}
-                            />
+                            <Link key={key} href={`/games/${data.name}`}>
+                                <a className="w-full">
+                                    <GameCard
+                                        key={key}
+                                        game={data}
+                                    />
+                                </a>
+                            </Link>
                         )
                     })}
                 </div>

@@ -2,7 +2,7 @@ import react from "react";
 
 export function GameType(props) {
     return (
-        <div className="w-full bg-seaBlue-800 text-white p-5">
+        <div className="w-full p-5">
             <ul className="flex justify-between">
                 <LiType
                     seachType={props.seachType}
@@ -26,7 +26,7 @@ export function GameType(props) {
 }
 
 function LiType(props) {
-    const checked = props.seachType === props.value ? 'text-green-500' : 'text-white'
+    const checked = props.seachType === props.value ? 'text-primaryGreen-default' : 'text-white'
     return (
         <li className={`${checked}`}>
             <button onClick={(e) => {
