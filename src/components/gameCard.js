@@ -58,7 +58,7 @@ export function GameCardInCart({ game, quantidade }) {
                     <button onClick={(e) => {
                         e.preventDefault()
                         setNewAmount(parseFloat(newAmount) - 1)
-                    }}>+</button>
+                    }}>-</button>
                     <input
                         className="w-1/3 text-center"
                         type={'number'}
@@ -73,7 +73,7 @@ export function GameCardInCart({ game, quantidade }) {
                     }}>+</button>
                 </div>
             <p className="text-center">
-               R$ {quantidade * game.price}
+               R$ {parseFloat(quantidade * game.price).toFixed(2)}
             </p>
             <AddToCar
                 thisAmount={newAmount}

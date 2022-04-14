@@ -8,17 +8,36 @@ import { useEffect } from "react";
 import MyCart from "../myCart";
 
 export default function GamePage({ gameProduct }) {
-    const [amount, setAMount] = react.useState(0)
+    const [amount, setAMount] = react.useState(1)
+    const [quantidadeAtual, setQuantidadeAtual] = react.useState()
+    const [db, setDb] = react.useState()
+    const [subTotal, setSubTotal] = react.useState()
 
     const { isFallback } = useRouter();
     if (isFallback) {
         return <p>Carregando...</p>
     }
 
+    react.useEffect(() => {
+        if (!localStorage.getItem('myShoppingCart')) {
+            setQuantidadeAtual('')
+            setSubTotal(parseFloat(amount * gameProduct.price).toFixed(2))
+        } else {
+            const allProducts = JSON.parse(localStorage.getItem('myShoppingCart'))
+            setDb(allProducts)
+            allProducts.find(e => {
+                if (e.game.name === gameProduct.name) {
+                    setQuantidadeAtual(e.quantidade)
+                    setSubTotal(parseFloat(e.quantidade * gameProduct.price).toFixed(2))
+                }
+                else { null }
+            })
+        }
+    },[amount, db])
 
     return (
         <div className="p-5">
-            <div className="flex flex-col justify-center items-center gap-3 shadow-lg p-5">
+            <div className="flex flex-col justify-center items-center gap-2 shadow-2xl p-5 rounded-[8px]">
                 <div className="w-full">
                     <Image
                         layout="responsive"
@@ -36,7 +55,7 @@ export default function GamePage({ gameProduct }) {
                     <button onClick={(e) => {
                         e.preventDefault()
                         setAMount(parseFloat(amount) - 1)
-                    }}>+</button>
+                    }}>-</button>
                     <input
                         className="w-1/3 text-center"
                         type={'number'}
@@ -54,6 +73,9 @@ export default function GamePage({ gameProduct }) {
                     thisGame={gameProduct}
                     thisAmount={amount}
                 />
+                <p>
+                    subTotal no Carrinho: {subTotal}
+                </p>
             </div>
         </div>
     )
