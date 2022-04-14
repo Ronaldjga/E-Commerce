@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import MyCart from "../myCart";
 
 export default function GamePage({ gameProduct }) {
+    const [amount, setAMount] = react.useState(0)
 
     const { isFallback } = useRouter();
     if (isFallback) {
@@ -31,8 +32,27 @@ export default function GamePage({ gameProduct }) {
                     <p className="p-3 bg-yellow-500 rounded-full">{gameProduct.score}</p>
                     <p className="font-bold text-2xl">R$ {gameProduct.price}</p>
                 </div>
+                <div className="flex justify-between">
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        setAMount(parseFloat(amount) - 1)
+                    }}>+</button>
+                    <input
+                        className="w-1/3 text-center"
+                        type={'number'}
+                        value={amount}
+                        onChange={(e) => {
+                            setAMount(e.target.value)
+                        }}
+                    />
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        setAMount(parseFloat(amount) + 1)
+                    }}>+</button>
+                </div>
                 <AddToCar
                     thisGame={gameProduct}
+                    thisAmount={amount}
                 />
             </div>
         </div>

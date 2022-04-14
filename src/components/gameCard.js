@@ -28,7 +28,9 @@ export function GameCard(props) {
     )
 }
 
-export function GameCardInCart({game, quantidade}) {
+export function GameCardInCart({ game, quantidade }) {
+    const [newAmount, setNewAmount] = react.useState(quantidade)
+
     return (
         <div className="flex flex-col p-5 shadow-lg">
             <div className="w-full flex">
@@ -48,19 +50,35 @@ export function GameCardInCart({game, quantidade}) {
                         <span className="p-2 bg-yellow-500 rounded-full">{game.score}</span>
                     </p>
                     <p className="text-2xl font-bold">
-                        {game.price}
+                        R$ {game.price}
                     </p>
                 </div>
             </div>
+            <div className="flex justify-between">
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        setNewAmount(parseFloat(newAmount) - 1)
+                    }}>+</button>
+                    <input
+                        className="w-1/3 text-center"
+                        type={'number'}
+                        value={newAmount}
+                        onChange={(e) => {
+                            setNewAmount(e.target.value)
+                        }}
+                    />
+                    <button onClick={(e) => {
+                        e.preventDefault()
+                        setNewAmount(parseFloat(newAmount) + 1)
+                    }}>+</button>
+                </div>
+            <p className="text-center">
+               R$ {quantidade * game.price}
+            </p>
             <AddToCar
+                thisAmount={newAmount}
                 thisGame={game}
             />
-            <p className="text-center">
-                {quantidade}
-            </p>
-            <p className="text-center">
-                {quantidade * game.price}
-            </p>
         </div>
     )
 }
