@@ -8,16 +8,8 @@ import cart from './img/cart-icon.svg'
 import { useRouter } from "next/router";
 
 export function NavBar() {
-    const [isOpen, setIsOpen] = react.useState(false)
-    const displayStyle = isOpen === false ? 'hidden' : 'flex'
-    
-
     return (
         <header>
-            {/* <MenuMobile
-                isOpen={isOpen}
-                setIsOpen={setIsOpen}
-            /> */}
             <nav className={`w-full py-2 fixed bottom-0 left-0 justify-center items-center bg-seaBlue-700 z-10
                 flex h-fit md:py-7 md:relative
             `}>
@@ -30,28 +22,6 @@ export function NavBar() {
                 </ul>
             </nav>
         </header>
-    )
-}
-
-function MenuMobile(props) {
-    const buttonValue = props.isOpen === false ? menuOpen : menuClose
-
-    return (
-        <button
-            onClick={(e) => {
-                e.preventDefault()
-                if (props.isOpen === false) {
-                    props.setIsOpen(true)
-                } else {
-                    props.setIsOpen(false)
-                }
-            }}
-            className="text-3xl md:hidden w-[45px] h-[45px] fixed right-2 top-2 rounded-full z-20 border-2 border-black">
-            <Image
-                src={buttonValue}
-                alt='menu button'
-            />
-        </button>
     )
 }
 
@@ -98,7 +68,7 @@ export function Cart({className}) {
             />
             {myCart.length > 0
                 ? (
-                < div className={`w-[18px] h-[18px] md:p-0 md:w-[20px] md:h-[20px] bg-red-500 rounded-full absolute -top-1 -right-2 md:top-0 md:right-0 flex justify-center items-center`}><p>{myCart.length}</p></div>
+                < div className={`w-[18px] h-[18px] md:p-0 md:w-[20px] md:h-[20px] bg-red-500 rounded-full absolute -top-1 -right-2 md:top-0 md:right-0 flex justify-center items-center text-white`}><p>{myCart.length}</p></div>
                 )
                 : (
                     null

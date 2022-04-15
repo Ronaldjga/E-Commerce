@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { products } from '../../products'
 import Link from "next/link";
+import rollLoading from './img/rollLoading.svg'
 
 
 export function GameSlide() {
@@ -36,6 +37,7 @@ export function GameSlide() {
                     <div className="mx-auto w-3/4 md:grid md:grid-cols-2 md:place-items-center">
                         <div className="max-w-[300px] w-3/4 md:w-full mx-auto md:max-w-xl">
                             <Image
+                                
                                 layout="responsive"
                                 src={products[game].image}
                                 alt={products[game].name}
@@ -43,6 +45,7 @@ export function GameSlide() {
                         </div>
                         <div className="flex flex-col justify-center items-center gap-3 lg:gap-5">
                             <h2 className="text-xl text-center md:text-3xl lg:text-4xl md:font-bold">{products[game].name}</h2>
+                            <p className="p-3 bg-red-700 rounded-[8px]">{products[game].type}</p>
                             <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
                             <p className="font-bold text-2xl md:text-4xl lg:text-5xl">{price}</p>
                         </div>

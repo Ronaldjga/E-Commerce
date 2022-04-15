@@ -3,7 +3,7 @@ import react from "react";
 export function GameType(props) {
     return (
         <div className="w-full p-5">
-            <ul className="flex justify-between">
+            <ul className="flex justify-center sm:justify-between flex-wrap gap-3">
                 <LiType
                     seachType={props.seachType}
                     setSeachType={props.setSeachType}
@@ -15,11 +15,19 @@ export function GameType(props) {
                 <LiType
                     seachType={props.seachType}
                     setSeachType={props.setSeachType}
+                    value="Fantasia" />
+                <LiType
+                    seachType={props.seachType}
+                    setSeachType={props.setSeachType}
                     value="Esporte" />
                 <LiType
                     seachType={props.seachType}
                     setSeachType={props.setSeachType}
-                    value="Luta" />
+                    value="Drama" />
+                <LiType
+                    seachType={props.seachType}
+                    setSeachType={props.setSeachType}
+                    value="Terror" />
             </ul>
         </div>
     )

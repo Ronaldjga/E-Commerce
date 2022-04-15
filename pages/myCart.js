@@ -53,8 +53,58 @@ export default function MyCart() {
                             quantidade={data.quantidade}
                         />
                     )
-                })}
+                        })}
+                
             </div>
+            <PurchaseButton
+                games={myCart}
+            />
+        </div>
+    )
+}
+
+
+function PurchaseButton({}) {
+    const [modalVisible, setModalVisible] = react.useState(false)
+    const [myGameList, setMyGameList] = react.useState([])
+    const toArray = []
+
+    react.useEffect(() => {
+        if (!localStorage.getItem('myShoppingCart')) {
+            setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
+        } else {
+            setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
+            if (myGameList.length === 0) {
+                setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
+            }
+        }
+        
+    }, [])
+
+    return (
+        <div>
+            <button
+                className={`p-3 bg-answer-success`}
+                onClick={(e) => {
+                    e.preventDefault()
+                    setModalVisible(true)
+                    setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
+                    toArray.push(...myGameList)
+                    console.log(myGameList)
+                }}
+            >
+                COMPRAR
+            </button>
+            
+            {modalVisible
+                ? (
+                    <div>
+                        {console.log()}
+                    </div>
+                )
+                : (
+                    null   
+                )}
         </div>
     )
 }

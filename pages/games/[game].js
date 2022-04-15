@@ -56,6 +56,7 @@ export default function GamePage({ gameProduct }) {
                     </div>
                     <div className="flex flex-col justify-center items-center gap-3 md:col-start-2 md:row-start-1 md:gap-5 bgred">
                         <h2 className="text-xl text-center lg:text-4xl lg:font-bold">{gameProduct.name}</h2>
+                        <p>{gameProduct.type}</p>
                         <p className="p-3 bg-yellow-500 rounded-full">{gameProduct.score}</p>
                         <p className="font-bold text-2xl lg:text-5xl">{price}</p>
                     </div>

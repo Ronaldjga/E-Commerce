@@ -61,7 +61,7 @@ export function GameCardInCart({ game, quantidade }) {
                     <h2 className="text-center sm:text-left w-full">
                         {game.name}
                     </h2>
-                    <p className="w-full flex justify-between sm:justify-start sm:gap-5 items-center">
+                    <p className="w-full flex flex-col gap-2 justify-between sm:justify-start sm:gap-5 items-center md:items-start">
                         <span>{game.type}</span>
                         <span className="p-2 bg-yellow-500 rounded-full">{game.score}</span>
                     </p>
