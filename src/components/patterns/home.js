@@ -4,7 +4,7 @@ import { NavBar } from "../navBar";
 
 export function Home() {
     return (
-        <section className="p-5">
+        <section className="">
             <NavBar />
             <GameSlide/>
         </section>

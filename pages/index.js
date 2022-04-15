@@ -4,9 +4,9 @@ import { Home } from "../src/components/patterns/home";
 
 export default function HomePage() {
     return (
-        <div>
+        <div className="">
             <Home />
-            <GameList/>
+            <GameList id='Games'/>
         </div>
     )
 }

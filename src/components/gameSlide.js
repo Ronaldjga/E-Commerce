@@ -30,11 +30,11 @@ export function GameSlide() {
 
 
     return (
-        <div className="max-w-screen-xl p-5 mx-auto flex flex-col gap-5 justify-center items-center bg-seaBlue-900 rounded-[8px] text-white">
+        <div className="w-full p-5 lg:py-10 mx-auto flex flex-col gap-5 justify-center items-center bg-seaBlue-900 text-white">
             <Link href={`/games/${products[game].name}`}>
                 <a className="w-full">
-                    <div className="w-full md:grid md:grid-cols-2 md:place-items-center">
-                        <div className="max-w-[300px] md:max-w-full w-3/4 md:w-full mx-auto">
+                    <div className="mx-auto w-3/4 md:grid md:grid-cols-2 md:place-items-center">
+                        <div className="max-w-[300px] w-3/4 md:w-full mx-auto md:max-w-xl">
                             <Image
                                 layout="responsive"
                                 src={products[game].image}
