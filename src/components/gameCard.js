@@ -41,7 +41,7 @@ export function GameCardInCart({ game, quantidade }) {
     return (
         <div className="
         flex flex-col justify-between gap-4 p-5 shadow-sm shadow-black relative bg-seaBlue-900 text-white rounded-[8px]
-        sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:place-items-center
+        sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:place-items-center w-full
         
         
         ">
@@ -54,6 +54,7 @@ export function GameCardInCart({ game, quantidade }) {
                         layout="responsive"
                         src={game.image}
                         alt={game.name}
+                        priority
                     />
                 </div>
                 <div className="w-3/4 flex flex-col gap-2 justify-between items-center sm:items-start">

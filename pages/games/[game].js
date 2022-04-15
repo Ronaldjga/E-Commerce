@@ -39,7 +39,7 @@ export default function GamePage({ gameProduct }) {
     },[amount, db])
 
     return (
-        <div>
+        <div className="h-fit min-h-screen pb-20 md:pb-0">
             <NavBar/>
             <div className="p-5 max-w-screen-xl mx-auto">
                 <div className="flex flex-col justify-center items-center gap-2 shadow-2xl p-5 rounded-[8px] bg-seaBlue-900 text-white

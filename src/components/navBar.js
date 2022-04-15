@@ -72,7 +72,6 @@ function LiList(props) {
 export function Cart({className}) {
     const [myCart, setMyCart] = react.useState([])
     const router = useRouter()
-    const checked = router.pathname === '/myCart' ? 'border-b-2 border-primaryGreen-default' : ''
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
             localStorage.setItem('myShoppingCart', JSON.stringify([]))
@@ -88,7 +87,7 @@ export function Cart({className}) {
 
     return (
         <button
-            className={`${className ? className : 'relative'} ${checked} w-[30px] h-[30px] md:w-[50px] md:h-[50px] md:p-2`}
+            className={`${className ? className : 'relative'} w-[30px] h-[30px] md:w-[50px] md:h-[50px] md:p-2`}
             onClick={(e) => { e.preventDefault;  router.push('/myCart')}}
         >
             <Image 
