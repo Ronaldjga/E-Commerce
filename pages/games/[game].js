@@ -68,9 +68,18 @@ export default function GamePage({ gameProduct }) {
                             thisGame={gameProduct}
                             thisAmount={amount}
                         />
-                        {subTotal ? <p>
-                            subTotal: <span className="font-bold">{subTotal}</span>
-                        </p> : null}
+                        {subTotal ?
+                            <div className="w-full flex flex-col justify-center items-center gap-1">
+                                <p className="text-center font-bold w-[25px] h-[25px] rounded-full bg-seaBlue-300 flex  justify-center items-center">
+                                    {quantidadeAtual}
+                                </p>
+                                <p>
+                                subTotal: <span className="font-bold">{subTotal}</span>
+                                </p>
+                            </div>
+                            :
+                            null
+                        }
                     </div>
                 </div>
             </div>

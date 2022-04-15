@@ -10,7 +10,7 @@ export function GameList(props) {
 
 
     return (
-        <main id={props.id}>
+        <main>
             <div className="max-w-screen-xl mx-auto p-5 flex flex-col justify-center items-center gap-5">
                 <div className="w-full p-2 bg-seaBlue-800 rounded-[8px]">
                     <input

@@ -70,9 +70,14 @@ export function GameCardInCart({ game, quantidade }) {
                     </p>
                 </div>
             </div>
-            <p className="text-center">
-               Subtotal: <span className="font-bold">{subTotalCalc}</span>
-            </p>
+            <div className="w-full flex flex-col justify-center items-center gap-1">
+                <p className="text-center font-bold w-[25px] h-[25px] rounded-full bg-seaBlue-300 flex justify-center items-center">
+                    {quantidade}
+                </p>
+                <p className="text-center">
+                   Subtotal: <span className="font-bold">{subTotalCalc}</span>
+                </p>
+            </div>
             <ButtonAmount
                 amount={amount}
                 setAmount={setAmount}

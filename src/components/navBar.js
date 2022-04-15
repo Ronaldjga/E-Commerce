@@ -94,6 +94,7 @@ export function Cart({className}) {
                 layout="responsive"
                 src={cart}
                 alt='ir para para o seu carrinho de compras'
+                priority
             />
             {myCart.length > 0
                 ? (
