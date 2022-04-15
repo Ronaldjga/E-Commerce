@@ -7,6 +7,16 @@ import shardsOfDarkness from './src/components/img/shards-of-darkness.svg'
 import terraMediaSombrasDeMordor from './src/components/img/terra-media-sombras-de-mordor.svg'
 import fifa18 from './src/components/img/fifa-18.svg'
 import horizonZeroDawn from './src/components/img/horizon-zero-dawn.svg'
+import theLastOfUs from './src/components/img/the-last-of-us.svg'
+import theLastOfUsPartII from './src/components/img/the-last-of-us-parte-II.svg'
+import godOfWar from './src/components/img/god-of-war.svg'
+import injustice2LegendaryEdition from './src/components/img/Injustice-2.svg'
+import overwatch from './src/components/img/overwatch.svg'
+import nba2K18 from './src/components/img/nba-2k-18.svg'
+import redDeadRedemptionII from './src/components/img/red-dead-redemption-II.svg'
+import spiderManMilesMorales from './src/components/img/spider-man-miles-morales.svg'
+import grandTheftAutoV from './src/components/img/gta-v.svg'
+import ghostOfTsushima from './src/components/img/ghost-of-tsushima.svg'
 
 
 export const products = [
