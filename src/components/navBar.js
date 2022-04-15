@@ -10,22 +10,23 @@ import { useRouter } from "next/router";
 export function NavBar() {
     const [isOpen, setIsOpen] = react.useState(false)
     const displayStyle = isOpen === false ? 'hidden' : 'flex'
+    
 
     return (
         <header>
-            <MenuMobile
+            {/* <MenuMobile
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-            />
-            <nav className={`${displayStyle} h-full w-full fixed top-0 left-0 justify-center items-center bg-seaBlue-700 z-10
-                md:flex md:h-fit md:py-7 md:relative
+            /> */}
+            <nav className={`w-full py-2 fixed bottom-0 left-0 justify-center items-center bg-seaBlue-700 z-10
+                flex h-fit md:py-7 md:relative
             `}>
-                <ul className="flex flex-col items-center gap-3
+                <ul className="w-full flex flex-row items-center justify-around gap-3
                     md:flex-row md:w-full md:max-w-screen-xl md:justify-center md:relative
                 ">
-                    <LiList value="Home"/>
-                    <LiList value="Games" href="Games"/>
-                    <LiList className="md:absolute md:right-5" value={<Cart/>}/>
+                    <LiList href='' value="Home"/>
+                    <LiList value="Games" href="games"/>
+                    <li className="md:absolute md:right-5"><Cart/></li>
                 </ul>
             </nav>
         </header>
@@ -45,7 +46,7 @@ function MenuMobile(props) {
                     props.setIsOpen(false)
                 }
             }}
-            className="text-3xl md:hidden w-[40px] h-[40px] fixed right-5 top-5 rounded-full z-20">
+            className="text-3xl md:hidden w-[45px] h-[45px] fixed right-2 top-2 rounded-full z-20 border-2 border-black">
             <Image
                 src={buttonValue}
                 alt='menu button'
@@ -56,11 +57,12 @@ function MenuMobile(props) {
 
 function LiList(props) {
     return (
-        <Link href={`#${props.href}`}>
+        <Link href={`/${props.href}`}>
             <a className={`${props.className}`}>
-                <li className="text-white">
+                <li className={`text-white`}>
                     {props.value}
                 </li>
+                
             </a>
         </Link>
     )
@@ -70,6 +72,7 @@ function LiList(props) {
 export function Cart({className}) {
     const [myCart, setMyCart] = react.useState([])
     const router = useRouter()
+    const checked = router.pathname === '/myCart' ? 'border-b-2 border-primaryGreen-default' : ''
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
             localStorage.setItem('myShoppingCart', JSON.stringify([]))
@@ -85,7 +88,7 @@ export function Cart({className}) {
 
     return (
         <button
-            className={`${className ? className : 'relative'} w-[50px] h-[50px] p-2 rounded-full`}
+            className={`${className ? className : 'relative'} ${checked} w-[30px] h-[30px] md:w-[50px] md:h-[50px] md:p-2`}
             onClick={(e) => { e.preventDefault;  router.push('/myCart')}}
         >
             <Image 
@@ -95,7 +98,7 @@ export function Cart({className}) {
             />
             {myCart.length > 0
                 ? (
-                < div className={`w-[20px] h-[20px] bg-red-500 rounded-full absolute top-0 right-0 flex justify-center items-center`}><p>{myCart.length}</p></div>
+                < div className={`w-[18px] h-[18px] md:p-0 md:w-[20px] md:h-[20px] bg-red-500 rounded-full absolute -top-1 -right-2 md:top-0 md:right-0 flex justify-center items-center`}><p>{myCart.length}</p></div>
                 )
                 : (
                     null
