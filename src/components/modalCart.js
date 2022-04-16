@@ -39,7 +39,7 @@ export function ModalCart({games, setModalVisible}) {
 function PurchaseList({ games }) {
     const total = games.length > 0 ? games.map((value) => value.quantidade * value.game.price).reduce((prev, current) => prev + current).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : null
     return (
-        <div className="h-full w-full flex flex-col sm:justify-center items-center gap-4 p-5">
+        <div className=" w-full flex flex-col sm:justify-center items-center gap-4 p-5">
             {games.map((data, key) => {
                 const subtotal = (data.quantidade * data.game.price).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                 return (
