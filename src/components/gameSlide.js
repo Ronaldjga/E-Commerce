@@ -37,7 +37,7 @@ export function GameSlide() {
                     <div className="mx-auto w-3/4 md:grid md:grid-cols-2 md:place-items-center">
                         <div className="max-w-[300px] w-3/4 md:w-full mx-auto md:max-w-xl">
                             <Image
-                                
+                                className="hover:brightness-125"
                                 layout="responsive"
                                 src={products[game].image}
                                 alt={products[game].name}

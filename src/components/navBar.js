@@ -29,7 +29,7 @@ function LiList(props) {
     return (
         <Link href={`/${props.href}`}>
             <a className={`${props.className}`}>
-                <li className={`text-white`}>
+                <li className={`text-white hover:text-primaryGreen-default`}>
                     {props.value}
                 </li>
                 
@@ -57,7 +57,7 @@ export function Cart({className}) {
 
     return (
         <button
-            className={`${className ? className : 'relative'} w-[30px] h-[30px] md:w-[50px] md:h-[50px] md:p-2`}
+            className={`${className ? className : 'relative'} w-[30px] h-[30px] md:w-[50px] md:h-[50px] md:p-2 hover:brightness-150`}
             onClick={(e) => { e.preventDefault;  router.push('/myCart')}}
         >
             <Image 

@@ -8,7 +8,7 @@ export function GameCard(props) {
 
     return (
         <div className="w-full max-w-[350px] sm:max-w-full h-full flex flex-col gap-3 items-center bg-seaBlue-900 text-white shadow-lg shadow-black p-5 rounded-[8px]
-            md:w-full
+            md:w-full hover:brightness-125
         ">
             <div className="max-w-[300px] w-2/3 md:w-3/4 relative">
                 <Image
@@ -21,7 +21,7 @@ export function GameCard(props) {
                 <span className="text-center">
                     {props.game.name}
                 </span>
-                <span className="p-2 bg-yellow-500 rounded-full">
+                <span className="p-2 bg-yellow-500 rounded-[8px]">
                     {props.game.score}
                 </span>
             </p>
@@ -51,6 +51,7 @@ export function GameCardInCart({ game, quantidade }) {
             ">
                 <div className="min-w-[110px] w-2/4 sm:w-2/4 md:w-2/6 lg:w-1/6">
                     <Image
+                        className="hover:brightness-125"
                         layout="responsive"
                         src={game.image}
                         alt={game.name}
@@ -63,7 +64,7 @@ export function GameCardInCart({ game, quantidade }) {
                     </h2>
                     <p className="w-full flex flex-col gap-2 justify-between sm:justify-start sm:gap-5 items-center md:items-start">
                         <span>{game.type}</span>
-                        <span className="p-2 bg-yellow-500 rounded-full">{game.score}</span>
+                        <span className="p-2 bg-yellow-500 rounded-[8px]">{game.score}</span>
                     </p>
                     <p className="text-2xl font-bold">
                         {price}
@@ -71,7 +72,7 @@ export function GameCardInCart({ game, quantidade }) {
                 </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center gap-1">
-                <p className="text-center font-bold w-[25px] h-[25px] rounded-full bg-seaBlue-300 flex justify-center items-center">
+                <p className="text-center font-bold w-[25px] h-[25px] rounded-[4px] bg-seaBlue-300 flex justify-center items-center">
                     {quantidade}
                 </p>
                 <p className="text-center">

@@ -16,10 +16,10 @@ export function AddToCar({ thisGame, thisAmount}) {
             const allProducts = JSON.parse(localStorage.getItem('myShoppingCart'))
             if (allProducts.find(e => e.game.name === thisGame.name && parseFloat(e.quantidade) !== parseFloat(thisAmount))) {
                 setButtonValue('Atualizar carrinho')
-                setButtonStyle('bg-answer-success')
+                setButtonStyle('bg-answer-success hover:brightness-110')
             } else if (allProducts.find(e => e.game.name === thisGame.name && parseFloat(e.quantidade) === parseFloat(thisAmount))) {
                 setButtonValue('Quantidade já adicionada')
-                setButtonStyle('bg-answer-failure')
+                setButtonStyle('bg-answer-failure brightness-75')
             }
         }
     }, [thisAmount])
@@ -45,7 +45,7 @@ export function AddToCar({ thisGame, thisAmount}) {
 
     const buttonConfig = (valor) => {
         if (valor === 'quantidade já adicionada' || valor === 'quantidade invalida') {
-            setButtonStyle('bg-answer-failure')
+            setButtonStyle('bg-answer-failure brightness-75')
         } else {
             setButtonStyle('bg-answer-success')
         }
@@ -76,8 +76,8 @@ export function AddToCar({ thisGame, thisAmount}) {
                 } else {
                     setButtonValue(`Atualizar o carinho`)
                     if (allProducts.find(e => e.game.name === thisGame.name && e.quantidade === thisAmount)) {
-                        setButtonStyle('bg-answer-failure')
-                        setButtonValue('quantidade já adicionada')
+                        setButtonStyle('bg-answer-failure brightness-75')
+                        setButtonValue('Quantidade já adicionada')
                         return
                     } else if (allProducts.find(e => e.game.name === thisGame.name && e.quantidade !== thisAmount)) {
                         allProducts.map((data) => data.game.name === thisGame.name ? data.quantidade= thisAmount : null)
@@ -87,6 +87,7 @@ export function AddToCar({ thisGame, thisAmount}) {
                     } else if (allProducts.find(e => e.game.name !== thisGame.name)) {
                         const toArray = [...allProducts, {"game": thisGame, "quantidade": thisAmount}]
                         localStorage.setItem('myShoppingCart', JSON.stringify(toArray))
+                        buttonConfig('adicionado ao carrinho')
                     }
                     
                 }
@@ -186,7 +187,7 @@ export function ButtonAmount({setAmount, amount}) {
 function ModifyQuantity({value ,amount ,setAmount}) {
     return (
         <button
-            className="w-1/4 h-full bg-seaBlue-400 rounded-[4px] text-2xl text-white"
+            className="w-1/4 h-full bg-seaBlue-400 rounded-[4px] text-2xl text-white hover:brightness-110"
             onClick={(e) => {
             e.preventDefault()
             if (value === '+') {

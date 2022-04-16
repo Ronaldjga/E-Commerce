@@ -41,21 +41,23 @@ export default function MyCart() {
                         placeholder="Pesquise no Seu carrinho"
                     />
                 </div>
-                {myCart.filter((val) => {
-                            if (seachMyCart === '') {
-                                return val
-                            } else if (val.game.name.toLowerCase().includes(seachMyCart.toLowerCase())) {
-                                return val
-                            }
-                        }).map((data, key) => {
-                    return (
-                        <GameCardInCart
-                            key={key}
-                            game={data.game}
-                            quantidade={data.quantidade}
-                        />
-                    )
-                        })}
+                <div className="w-full bg-gray-500 p-2 rounded-[8px] flex flex-col gap-2">
+                    {myCart.filter((val) => {
+                                if (seachMyCart === '') {
+                                    return val
+                                } else if (val.game.name.toLowerCase().includes(seachMyCart.toLowerCase())) {
+                                    return val
+                                }
+                            }).map((data, key) => {
+                        return (
+                            <GameCardInCart
+                                key={key}
+                                game={data.game}
+                                quantidade={data.quantidade}
+                            />
+                        )
+                            })}
+                </div>
                 
                 {myCart.length === 0 ? null : <PurchaseButton setModalVisible={setModalVisible} />}
                 {modalVisible === true ? (
@@ -85,7 +87,7 @@ function PurchaseButton({setModalVisible}) {
 
     return (
         <button
-            className={`w-full max-w-screen-xl mx-auto p-3 bg-answer-success rounded-[8px] font-bold hover:brightness-110 drop-shadow-2xl`}
+            className={`w-full max-w-screen-xl mx-auto p-3 bg-answer-success rounded-[8px] font-bold hover:brightness-110`}
             onClick={(e) => {
                 e.preventDefault()
                 setModalVisible(true)

@@ -12,8 +12,8 @@ export function ModalCart({games, setModalVisible}) {
                     e.preventDefault()
                     setModalVisible(false)
                  }}
-                className="w-full h-full fixed top-0 left-0 bg-gray-900/[.5]"/>
-            <div className="w-3/4 h-3/4 lg:w-full max-w-[1000px] lg:h-full md:max-h-[600px] fixed z-10 bg-gray-900 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 text-white flex sm:justify-center items-center">
+                className="w-full h-full fixed top-0 left-0 bg-gray-900/[.7]"/>
+            <div className="w-3/4 h-3/4 lg:w-full max-w-[1000px] lg:h-full md:max-h-[600px] fixed z-10 bg-gray-900 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 text-white flex sm:justify-center items-center rounded-[8px]">
                 <PurchaseList
                     games={games}
                 />
@@ -50,9 +50,9 @@ function PurchaseList({ games }) {
                                 priority
                             />
                         </div>
-                        <div className="text-center sm:text-left">
+                        <div className="text-center sm:text-left flex flex-col gap-2">
                             <h3>{data.game.name}</h3>
-                            <p><span>{data.quantidade}</span> <span>{subtotal}</span></p>
+                            <p className="flex justify-center sm:justify-start gap-2 items-center"><span className="bg-seaBlue-300 text-black px-2 py-1 rounded-[4px]">{data.quantidade}</span> <span>{subtotal}</span></p>
                         </div>
                     </div>
                 )

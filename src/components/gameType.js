@@ -34,9 +34,9 @@ export function GameType(props) {
 }
 
 function LiType(props) {
-    const checked = props.seachType === props.value ? 'text-primaryGreen-default' : 'text-white'
+    const checked = props.seachType === props.value ? 'text-seaBlue-900  bg-answer-success rounded-[8px]' : 'text-white'
     return (
-        <li className={`${checked}`}>
+        <li className={`${checked}  py-1 px-2`}>
             <button onClick={(e) => {
                 e.preventDefault()
                 if (props.seachType === props.value) {
