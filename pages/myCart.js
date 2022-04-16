@@ -11,6 +11,7 @@ export default function MyCart() {
     const [myCart, setMyCart] = react.useState([])
     const [modalVisible, setModalVisible] = react.useState(false)
     const [seachMyCart, setSeachMyCart] = react.useState('')
+    const gameListStyle = myCart.length === 0 ? '' : 'bg-gray-500'
 
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
@@ -41,7 +42,7 @@ export default function MyCart() {
                         placeholder="Pesquise no Seu carrinho"
                     />
                 </div>
-                <div className="w-full bg-gray-500 p-2 rounded-[8px] flex flex-col gap-2">
+                <div className={`${gameListStyle} w-full p-2 rounded-[8px] flex flex-col gap-2`}>
                     {myCart.filter((val) => {
                                 if (seachMyCart === '') {
                                     return val

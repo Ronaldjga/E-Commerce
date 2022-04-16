@@ -45,8 +45,8 @@ export function GameSlide() {
                         </div>
                         <div className="flex flex-col justify-center items-center gap-3 lg:gap-5">
                             <h2 className="text-xl text-center md:text-3xl lg:text-4xl md:font-bold">{products[game].name}</h2>
-                            <p className="p-3 bg-red-700 rounded-[8px]">{products[game].type}</p>
-                            <p className="p-3 bg-yellow-500 rounded-full">{products[game].score}</p>
+                            <p className="p-3 bg-seaBlue-default rounded-[8px]">{products[game].type}</p>
+                            <p className="p-3 bg-yellow-500 rounded-[8px]">{products[game].score}</p>
                             <p className="font-bold text-2xl md:text-4xl lg:text-5xl">{price}</p>
                         </div>
                     </div>
@@ -117,7 +117,7 @@ function InputSlide(props) {
     return (
         <>
             <label
-                className={`${checked} block w-[30px] h-[10px]`}
+                className={`${checked} block w-[30px] h-[10px] hover:brightness-150 cursor-pointer`}
                 htmlFor={props.gameIndex}>
                 
                 </label>

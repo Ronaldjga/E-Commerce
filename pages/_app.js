@@ -30,7 +30,22 @@ function GlobalStyle() {
         }
   
         /* ./App fit Height */ 
-          `}</style>
+        
+        ::-webkit-scrollbar {
+          width: 12px;               /* width of the entire scrollbar */
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #0F5959;        /* color of the tracking area */
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background-color: #22D993;    /* color of the scroll thumb */
+          border-radius: 20px;       /* roundness of the scroll thumb */
+          border: 3px solid #000000;  /* creates padding around scroll thumb */
+        }
+        
+        `}</style>
     )
   }
   

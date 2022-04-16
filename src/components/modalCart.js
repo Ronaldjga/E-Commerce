@@ -13,10 +13,12 @@ export function ModalCart({games, setModalVisible}) {
                     setModalVisible(false)
                  }}
                 className="w-full h-full fixed top-0 left-0 bg-gray-900/[.7]"/>
-            <div className="w-3/4 h-3/4 lg:w-full max-w-[1000px] lg:h-full md:max-h-[600px] fixed z-10 bg-gray-900 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 text-white flex sm:justify-center items-center rounded-[8px]">
-                <PurchaseList
-                    games={games}
-                />
+            <div className="w-3/4 h-3/4 lg:w-full max-w-[1000px] lg:h-full md:max-h-[600px] fixed z-10 bg-gray-900 top-2/4 left-2/4 transform -translate-x-2/4 -translate-y-2/4 text-white flex sm:justify-center items-start rounded-[8px]">
+                <div className="w-full h-full overflow-y-auto">
+                    <PurchaseList
+                        games={games}
+                    />
+                </div>
                 <button
                     className="w-[40px] h-[40px] absolute top-5 right-5"
                     onClick={(e) => {
@@ -37,7 +39,7 @@ export function ModalCart({games, setModalVisible}) {
 function PurchaseList({ games }) {
     const total = games.length > 0 ? games.map((value) => value.quantidade * value.game.price).reduce((prev, current) => prev + current).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) : null
     return (
-        <div className="w-full flex flex-col sm:justify-center items-center gap-4 p-5">
+        <div className="h-full w-full flex flex-col sm:justify-center items-center gap-4 p-5">
             {games.map((data, key) => {
                 const subtotal = (data.quantidade * data.game.price).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
                 return (
@@ -94,14 +96,15 @@ function Purchase({games}) {
 function PurchaseComplete() {
     return (
         <div className="w-full h-full flex flex-col justify-center items-center gap-5">
-            <div className="w-2/4 sm:w-1/4">
+            <div className="w-2/4 sm:w-1/4 relative animate-pulse brightness-150">
                 <Image
+                    className=""
                     layout="responsive"
                     src={hearth}
                     alt='hearth'
                 />
             </div>
-            <h2 className="text-3xl text-center">OBRIGADO! VOLTE SEMPRE</h2>
+            <h2 className="text-3xl text-center">OBRIGADO! VOLTE SEMPRE!</h2>
         </div>
     )
 }
