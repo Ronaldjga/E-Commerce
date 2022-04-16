@@ -4,10 +4,12 @@ import { AddToCar } from "../src/components/addToCar";
 import Image from "next/image";
 import { GameCardInCart } from "../src/components/gameCard";
 import { NavBar } from "../src/components/navBar";
+import { ModalCart } from "../src/components/modalCart";
 
 export default function MyCart() {
     const [isCart, setIsCart] = react.useState()
     const [myCart, setMyCart] = react.useState([])
+    const [modalVisible, setModalVisible] = react.useState(false)
     const [seachMyCart, setSeachMyCart] = react.useState('')
 
     react.useEffect(() => {
@@ -55,56 +57,41 @@ export default function MyCart() {
                     )
                         })}
                 
+                {myCart.length === 0 ? null : <PurchaseButton setModalVisible={setModalVisible} />}
+                {modalVisible === true ? (
+                    <ModalCart
+                        games={myCart}
+                        setModalVisible={setModalVisible}
+                    >
+                        {myCart.map((data, key) => {
+                            return (
+                                <div key={key}>
+
+                                </div>
+                            )
+                        })}
+                    </ModalCart>                
+                )
+                    : (
+                        null
+                )}
             </div>
-            <PurchaseButton
-                games={myCart}
-            />
         </div>
     )
 }
 
 
-function PurchaseButton({}) {
-    const [modalVisible, setModalVisible] = react.useState(false)
-    const [myGameList, setMyGameList] = react.useState([])
-    const toArray = []
-
-    react.useEffect(() => {
-        if (!localStorage.getItem('myShoppingCart')) {
-            setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
-        } else {
-            setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
-            if (myGameList.length === 0) {
-                setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
-            }
-        }
-        
-    }, [])
+function PurchaseButton({setModalVisible}) {
 
     return (
-        <div>
-            <button
-                className={`p-3 bg-answer-success`}
-                onClick={(e) => {
-                    e.preventDefault()
-                    setModalVisible(true)
-                    setMyGameList(JSON.parse(localStorage.getItem('myShoppingCart')))
-                    toArray.push(...myGameList)
-                    console.log(myGameList)
-                }}
-            >
-                COMPRAR
-            </button>
-            
-            {modalVisible
-                ? (
-                    <div>
-                        {console.log()}
-                    </div>
-                )
-                : (
-                    null   
-                )}
-        </div>
+        <button
+            className={`w-full max-w-screen-xl mx-auto p-3 bg-answer-success rounded-[8px] font-bold hover:brightness-110 drop-shadow-2xl`}
+            onClick={(e) => {
+                e.preventDefault()
+                setModalVisible(true)
+            }}
+        >
+            Prosseguir com a Compra
+        </button>
     )
 }
