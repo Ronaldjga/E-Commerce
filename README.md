@@ -37,8 +37,8 @@
 ***
 
 ## Desktop
-<img width="100%" src="https://s7.gifyu.com/images/site.md.gif" alt="projeto em desktop"/>
+<img width="100%" src="https://s7.gifyu.com/images/site.gif" alt="projeto em desktop"/>
 
 ***
 ## Mobile
-<img src="https://s7.gifyu.com/images/mobile-site.md.gif" alt="projeto em desktop"/>
+<img src="https://s7.gifyu.com/images/mobile-site.gif" alt="projeto em desktop"/>
