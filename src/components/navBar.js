@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 export function NavBar() {
     return (
         <header>
-            <nav className={`w-full py-2 fixed bottom-0 left-0 justify-center items-center bg-seaBlue-700 z-10
+            <nav className={`w-full py-2 fixed bottom-0 left-0 justify-center items-center bg-primaryBlue-700 z-10
                 flex h-fit md:py-7 md:relative
             `}>
                 <ul className="w-full flex flex-row items-center justify-around gap-3
@@ -29,7 +29,7 @@ function LiList(props) {
     return (
         <Link href={`/${props.href}`}>
             <a className={`${props.className}`}>
-                <li className={`text-white hover:text-primaryGreen-default`}>
+                <li className={`text-white hover:text-primaryYellow-default`}>
                     {props.value}
                 </li>
                 

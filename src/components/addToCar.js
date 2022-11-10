@@ -7,7 +7,7 @@ import trashIcon from './img/trashIcon.svg'
 export function AddToCar({ thisGame, thisAmount}) {
     const [newProduct, setNewProduct] = react.useState([])
     const [buttonValue, setButtonValue] = react.useState('Adicionar ao carrinho')
-    const [buttonStyle, setButtonStyle] = react.useState('bg-seaBlue-400')
+    const [buttonStyle, setButtonStyle] = react.useState('bg-primaryBlue-400')
 
     react.useEffect(() => {
         if (!localStorage.getItem('myShoppingCart')) {
@@ -187,7 +187,7 @@ export function ButtonAmount({setAmount, amount}) {
 function ModifyQuantity({value ,amount ,setAmount}) {
     return (
         <button
-            className="w-1/4 h-full bg-seaBlue-400 rounded-[4px] text-2xl text-white hover:brightness-110"
+            className="w-1/4 h-full bg-primaryBlue-400 rounded-[4px] text-2xl text-white hover:brightness-110"
             onClick={(e) => {
             e.preventDefault()
             if (value === '+') {

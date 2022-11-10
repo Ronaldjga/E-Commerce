@@ -31,7 +31,7 @@ export function GameSlide() {
 
 
     return (
-        <div className="w-full p-5 lg:py-10 mx-auto flex flex-col gap-5 justify-center items-center bg-seaBlue-900 text-white">
+        <div className="w-full p-5 lg:py-10 mx-auto flex flex-col gap-5 justify-center items-center bg-primaryBlue-900 text-white">
             <Link href={`/games/${products[game].name}`}>
                 <a className="w-full">
                     <div className="mx-auto w-3/4 md:grid md:grid-cols-2 md:place-items-center">
@@ -45,7 +45,7 @@ export function GameSlide() {
                         </div>
                         <div className="flex flex-col justify-center items-center gap-3 lg:gap-5">
                             <h2 className="text-xl text-center md:text-3xl lg:text-4xl md:font-bold">{products[game].name}</h2>
-                            <p className="p-3 bg-seaBlue-default rounded-[8px]">{products[game].type}</p>
+                            <p className="p-3 bg-black rounded-[8px]">{products[game].type}</p>
                             <p className="p-3 bg-yellow-500 rounded-[8px]">{products[game].score}</p>
                             <p className="font-bold text-2xl md:text-4xl lg:text-5xl">{price}</p>
                         </div>
@@ -113,7 +113,7 @@ export function GameSlide() {
 }
 
 function InputSlide(props) {
-    const checked = props.game === props.gameIndex ? 'bg-primaryGreen-default' : 'bg-seaBlue-default'
+    const checked = props.game === props.gameIndex ? 'bg-primaryYellow-default' : 'bg-white opacity-20'
     return (
         <>
             <label

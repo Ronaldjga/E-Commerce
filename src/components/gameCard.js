@@ -7,7 +7,7 @@ export function GameCard(props) {
     const price = props.game.price.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})
 
     return (
-        <div className="w-full max-w-[350px] sm:max-w-full h-full flex flex-col gap-3 items-center bg-seaBlue-900 text-white shadow-lg shadow-black p-5 rounded-[8px]
+        <div className="w-full max-w-[350px] sm:max-w-full h-full flex flex-col gap-3 items-center bg-primaryBlue-900 text-white shadow-lg shadow-black p-5 rounded-[8px]
             md:w-full hover:brightness-125
         ">
             <div className="max-w-[300px] w-2/3 md:w-3/4 relative">
@@ -40,7 +40,7 @@ export function GameCardInCart({ game, quantidade }) {
 
     return (
         <div className="
-        flex flex-col justify-between gap-4 p-5 shadow-sm shadow-black relative bg-seaBlue-900 text-white rounded-[8px]
+        flex flex-col justify-between gap-4 p-5 shadow-sm shadow-black relative bg-primaryBlue-900 text-white rounded-[8px]
         sm:grid sm:grid-cols-2 sm:grid-rows-3 sm:place-items-center w-full
         
         
@@ -72,7 +72,7 @@ export function GameCardInCart({ game, quantidade }) {
                 </div>
             </div>
             <div className="w-full flex flex-col justify-center items-center gap-1">
-                <p className="text-center font-bold w-[25px] h-[25px] rounded-[4px] bg-seaBlue-300 flex justify-center items-center">
+                <p className="text-center font-bold w-[25px] h-[25px] rounded-[4px] bg-primaryBlue-300 flex justify-center items-center">
                     {quantidade}
                 </p>
                 <p className="text-center">

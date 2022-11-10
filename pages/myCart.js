@@ -31,9 +31,9 @@ export default function MyCart() {
         <div className="h-fit pb-20 md:pb-0 min-h-screen">
             <NavBar/>
             <div className="flex flex-col justify-center items-center gap-5 p-5 max-w-screen-xl mx-auto">
-                <div className="w-full py-5 px-5 rounded-[8px] bg-seaBlue-800">
+                <div className="w-full py-5 px-5 rounded-[8px] bg-primaryBlue-800">
                     <input
-                        className="w-full border-2 border-seaBlue-300 rounded-[4px] p-2"
+                        className="w-full border-2 border-primaryBlue-300 rounded-[4px] p-2"
                         type={'text'}
                         value={seachMyCart}
                         onChange={(e) => {

@@ -54,7 +54,7 @@ function PurchaseList({ games }) {
                         </div>
                         <div className="text-center sm:text-left flex flex-col gap-2">
                             <h3>{data.game.name}</h3>
-                            <p className="flex justify-center sm:justify-start gap-2 items-center"><span className="bg-seaBlue-300 text-black px-2 py-1 rounded-[4px]">{data.quantidade}</span> <span>{subtotal}</span></p>
+                            <p className="flex justify-center sm:justify-start gap-2 items-center"><span className="bg-primaryBlue-300 text-black px-2 py-1 rounded-[4px]">{data.quantidade}</span> <span>{subtotal}</span></p>
                         </div>
                     </div>
                 )

@@ -42,7 +42,7 @@ export default function GamePage({ gameProduct }) {
         <div className="h-fit min-h-screen pb-20 md:pb-0">
             <NavBar/>
             <div className="p-5 max-w-screen-xl mx-auto">
-                <div className="flex flex-col justify-center items-center gap-2 shadow-2xl p-5 rounded-[8px] bg-seaBlue-900 text-white
+                <div className="flex flex-col justify-center items-center gap-2 shadow-2xl p-5 rounded-[8px] bg-primaryBlue-900 text-white
                 sm:grid sm:grid-cols-2 sm:grid-rows-1 sm:place-items-center
             
                 ">
@@ -71,7 +71,7 @@ export default function GamePage({ gameProduct }) {
                         />
                         {subTotal ?
                             <div className="w-full flex flex-col justify-center items-center gap-1">
-                                <p className="text-center font-bold w-[25px] h-[25px] rounded-full bg-seaBlue-300 flex  justify-center items-center">
+                                <p className="text-center font-bold w-[25px] h-[25px] rounded-full bg-primaryBlue-300 flex  justify-center items-center">
                                     {quantidadeAtual}
                                 </p>
                                 <p>
